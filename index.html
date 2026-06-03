@@ -515,82 +515,52 @@
   }
 
 
-  /* Improved Common Questions page */
+  /* Final FAQ alignment fix */
+  #page-faq {
+    text-align: center;
+  }
+
   #page-faq .about-hero {
-    min-height: 30vh;
-    padding: 135px 4rem 18px;
+    min-height: auto;
+    padding: 135px 1.5rem 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #page-faq .about-hero-inner {
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #page-faq .about-hero .label {
+    justify-content: center;
   }
 
   #page-faq .section-wrap {
-    max-width: 860px;
-    padding: 0.75rem 4rem 6rem;
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem 6rem;
+    text-align: center;
     border-top: none;
-    text-align: center;
-  }
-
-  #page-faq .label {
-    justify-content: center;
-    margin-bottom: 0.8rem;
-  }
-
-  #page-faq .label::before {
-    content: '';
-    flex: 0 0 24px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  #page-faq h2 {
-    text-align: center;
-    margin-bottom: 2rem;
   }
 
   #page-faq .faq-list {
     max-width: 760px;
+    width: 100%;
     margin: 0 auto;
     text-align: left;
-    background: rgba(0,0,0,0.32);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 16px;
-    padding: 0.75rem 1.5rem;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.22);
-  }
-
-  #page-faq .faq-item {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  #page-faq .faq-item:last-child {
-    border-bottom: none;
-  }
-
-  #page-faq .faq-q {
-    padding: 1.15rem 0;
-    font-size: 16px;
-    color: rgba(255,255,255,0.92);
-  }
-
-  #page-faq .faq-a {
-    color: rgba(255,255,255,0.68);
-    padding-right: 1rem;
-  }
-
-  #page-faq .faq-item.open .faq-a {
-    padding-bottom: 1.15rem;
   }
 
   @media (max-width: 720px) {
     #page-faq .about-hero {
-      min-height: 28vh;
-      padding: 120px 1.5rem 14px;
+      padding: 120px 1.25rem 8px;
     }
 
     #page-faq .section-wrap {
-      padding: 0.75rem 1.5rem 4rem;
-    }
-
-    #page-faq .faq-list {
-      padding: 0.5rem 1rem;
+      padding: 0 1.25rem 4rem;
     }
   }
 
@@ -937,7 +907,7 @@
 
 
   
-  <div class="section-wrap" style="border-top:none; padding-top:6rem;">
+  <div class="section-wrap">
     
     <div class="faq-list">
       <div class="faq-item">
