@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DogsOnly — Built for Candidates Who Compete</title>
+<title>DogsOnly, Built for Candidates Who Compete</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,31 +57,34 @@
   }
 
   .nav-right {
-    display: flex; align-items: center; gap: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
   }
 
-  /* Primary CTA buttons in nav */
-  .nav-cta-primary {
-    background: var(--black); color: var(--white);
-    border: 1.5px solid var(--black);
-    padding: 10px 22px; border-radius: 4px;
-    font-family: var(--sans); font-size: 14px; font-weight: 500;
-    cursor: pointer; text-decoration: none; display: inline-block;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.01em;
-  }
-  .nav-cta-primary:hover { background: #222; transform: translateY(-1px); }
 
+  /* Top-right CTA buttons */
+  .nav-cta-primary,
   .nav-cta-pricing {
-    background: transparent; color: var(--white);
-    border: 1.5px solid rgba(255,255,255,0.35);
-    padding: 10px 22px; border-radius: 4px;
-    font-family: var(--sans); font-size: 14px; font-weight: 500;
-    cursor: pointer; text-decoration: none; display: inline-block;
-    transition: border-color 0.2s, transform 0.15s;
+    background: #0a0a0a;
+    color: #ffffff;
+    border: 1.5px solid #0a0a0a;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
     letter-spacing: 0.01em;
   }
-  .nav-cta-pricing:hover { border-color: #fff; transform: translateY(-1px); }
+
+  .nav-cta-primary:hover,
+  .nav-cta-pricing:hover {
+    background: #1a1a1a;
+    border-color: #333;
+    transform: translateY(-1px);
+  }
 
   /* Hamburger menu */
   .hamburger-btn {
@@ -393,26 +396,75 @@
 
   /* ── ABOUT PAGE ───────────────────────────── */
   .about-hero {
-    min-height: 60vh; display: flex; align-items: center;
-    padding: 140px 4rem 80px;
+    min-height: 58vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 4rem 70px;
+    text-align: center;
   }
-  .about-hero-inner { max-width: 800px; }
-  .about-body { max-width: 1100px; margin: 0 auto; padding: 0 4rem 6rem; }
-  .about-body h2 { margin-bottom: 1.5rem; }
-  .about-body p { font-size: 17px; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 1.5rem; max-width: 700px; }
-  .about-body .highlight {
-    font-size: 20px; color: rgba(255,255,255,0.92);
-    border-left: 3px solid var(--accent); padding-left: 1.5rem;
-    margin: 2.5rem 0; font-family: var(--serif); font-style: italic; line-height: 1.6;
+  .about-hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
   }
-  .about-values { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 4rem; }
+  .about-hero .label {
+    justify-content: center;
+  }
+  .about-hero .label::before {
+    content: '';
+    flex: 0 0 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .about-body {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 4rem 6rem;
+    text-align: center;
+  }
+  .about-body p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.85;
+    margin: 0 auto 1.35rem;
+    max-width: 760px;
+  }
+  .about-values {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
   .about-value {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px; padding: 2rem;
+    background: rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 14px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
   }
-  .about-value-icon { font-size: 28px; margin-bottom: 1rem; }
-  .about-value h4 { font-family: var(--serif); font-size: 18px; font-weight: 700; margin-bottom: 0.5rem; }
-  .about-value p { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 0; max-width: 100%; }
+  .about-value:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,122,26,0.45);
+    background: rgba(0,0,0,0.42);
+  }
+  .about-value-icon {
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+  .about-value h4 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+  }
+  .about-value p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.66);
+    margin-bottom: 0;
+    max-width: 100%;
+    line-height: 1.7;
+  }
 
   /* ── APPLY+PRICING PAGE ───────────────────── */
   .apply-pricing-page { padding-top: 90px; }
@@ -454,6 +506,14 @@
     .form-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 46px; }
   }
+
+  @media (max-width: 720px) {
+    .nav-cta-primary,
+    .nav-cta-pricing {
+      display: none;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -469,6 +529,7 @@
   <a href="#" onclick="showPage('about');closeSideMenu()">About</a>
   <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('how').scrollIntoView({behavior:'smooth'}),100);closeSideMenu()">How it Works</a>
   <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('reviews').scrollIntoView({behavior:'smooth'}),100);closeSideMenu()">Reviews</a>
+  <a href="#" onclick="showPage('faq');closeSideMenu()">Common Questions</a>
 </div>
 
 <!-- ── NAV ───────────────────────────────── -->
@@ -478,7 +539,7 @@
     DogsOnly
   </a>
   <div class="nav-right">
-    <a href="#" class="nav-cta-primary" onclick="showPage('apply-pricing'); return false;">Apply Now</a>
+    <a href="#" class="nav-cta-primary" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('apply-form-section').scrollIntoView({behavior:'smooth'}),100); return false;">Apply Now</a>
     <a href="#" class="nav-cta-pricing" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),100); return false;">Pricing</a>
     <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSideMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -500,7 +561,7 @@
         <h1>Outcompete<br>the <em>average</em><br>applicant.</h1>
       </div>
       <div class="hero-right">
-        <p class="hero-sub">DogsOnly generates the interviews for you — and helps entry-level candidates and college students break through to decision makers so they walk into every interview ready to win.</p>
+        <p class="hero-sub">DogsOnly generates the interviews for you, and helps entry-level candidates and college students break through to decision makers so they walk into every interview ready to win.</p>
         <div class="hero-actions">
           <a href="#" class="btn-dark" onclick="showPage('apply-pricing'); return false;">Apply for a session</a>
           <a href="#" class="btn-black-outline" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),100); return false;">See pricing</a>
@@ -572,7 +633,7 @@
         </div>
       </div>
       <div class="testi-card">
-        <div class="testi-quote">DogsOnly helped me land 10 interviews — including the youngest-ever SDR final round at a major startup. I walked away with 5+ offers and chose a Sales Executive position.</div>
+        <div class="testi-quote">DogsOnly helped me land 10 interviews, including the youngest-ever SDR final round at a major startup. I walked away with 5+ offers and chose a Sales Executive position.</div>
         <div class="testi-author">
           <strong>Lee</strong>
           <span>Sales Executive</span>
@@ -598,7 +659,7 @@
       <h1 style="font-family:var(--serif);font-size:clamp(34px,4vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1.08;margin-bottom:1.25rem;">
         Built for students who deserve a <em style="color:var(--accent-dark);font-style:italic;">real shot.</em>
       </h1>
-      <p style="font-size:17px;font-weight:300;color:rgba(255,255,255,0.78);max-width:620px;line-height:1.7;">
+      <p style="font-size:17px;font-weight:300;color:rgba(255,255,255,0.78);max-width:680px;line-height:1.7;margin:0 auto;">
         DogsOnly helps students and entry-level candidates break through the broken job search and get in front of real decision makers.
       </p>
     </div>
@@ -615,7 +676,7 @@
       <div class="about-value">
         <div class="about-value-icon">🎯</div>
         <h4>Competitive Positioning</h4>
-        <p>We don't give you generic advice. We build a targeted strategy for your exact situation, industry, and target role.</p>
+        <p>We do not give generic advice. We build a targeted strategy for your exact situation, industry, and target role.</p>
       </div>
       <div class="about-value">
         <div class="about-value-icon">🔓</div>
@@ -625,7 +686,7 @@
       <div class="about-value">
         <div class="about-value-icon">💪</div>
         <h4>Real Results</h4>
-        <p>We measure success by one thing: did you get the interview? Did you get the offer? That's the only metric that matters.</p>
+        <p>We measure success by one thing: did you get the interview, and did you get the offer? That is the metric that matters.</p>
       </div>
     </div>
   </div>
@@ -751,6 +812,10 @@
               <option>$500 full-cycle support</option>
             </select>
           </div>
+          <div class="form-group">
+            <label>Who referred you?</label>
+            <input type="text" placeholder="Referral name for 10% off discount" />
+          </div>
           <div class="form-group form-full">
             <label>What are you struggling with most?</label>
             <textarea placeholder="e.g. Not getting callbacks, don't know how to answer behavioral questions, resume feels generic..."></textarea>
@@ -766,9 +831,33 @@
       </div>
     </div>
   </div>
+<footer>
+    <div class="footer-logo">DogsOnly</div>
+    <p>© 2026 DogsOnly. Built for the ones who compete.</p>
+  </footer>
+</div><!-- /page-apply-pricing -->
 
-  <!-- FAQ -->
-  <div class="section-wrap">
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PAGE: FAQ                                   -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="page-faq" class="page">
+  <div class="about-hero" style="min-height:42vh;">
+    <div class="about-hero-inner" style="animation: fadeUp 0.7s ease both;">
+      <div class="label">Common Questions</div>
+      <h1 style="font-family:var(--serif);font-size:clamp(34px,4vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1.08;margin-bottom:1.25rem;">
+        Questions before you apply?
+      </h1>
+      <p style="font-size:17px;font-weight:300;color:rgba(255,255,255,0.78);max-width:680px;line-height:1.7;margin:0 auto;">
+        Here are the most common questions candidates ask before working with DogsOnly.
+      </p>
+    </div>
+  </div>
+
+
+  
+  <div class="section-wrap" style="border-top:none; padding-top:6rem;">
     <div class="label">FAQ</div>
     <h2>Common questions</h2>
     <div class="faq-list">
@@ -782,24 +871,25 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">How do I prepare for the session? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Fill out the application form honestly. Have your resume ready and know what role or internship you're targeting. That's it — we handle the rest.</div>
+        <div class="faq-a">Fill out the application form honestly. Have your resume ready and know what role or internship you're targeting. That's it, we handle the rest.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Is this guaranteed to get me a job? <span class="faq-icon">+</span></div>
-        <div class="faq-a">No one can guarantee an offer — and anyone who says they can is lying to you. What we do guarantee: you'll leave with a sharper resume and stronger interview answers than when you came in.</div>
+        <div class="faq-a">No one can guarantee an offer, and anyone who says they can is lying to you. What we do guarantee: you'll leave with a sharper resume and stronger interview answers than when you came in.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do you work with all industries? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Yes — tech, finance, marketing, sales, consulting, and more. If you're applying for entry-level roles or internships and want to stand out, we can help regardless of industry.</div>
+        <div class="faq-a">Yes, tech, finance, marketing, sales, consulting, and more. If you're applying for entry-level roles or internships and want to stand out, we can help regardless of industry.</div>
       </div>
     </div>
   </div>
 
+  
   <footer>
     <div class="footer-logo">DogsOnly</div>
     <p>© 2026 DogsOnly. Built for the ones who compete.</p>
   </footer>
-</div><!-- /page-apply-pricing -->
+</div><!-- /page-faq -->
 
 
 <script>
