@@ -515,13 +515,22 @@
   }
 
 
-  /* Centered FAQ page */
+  /* Improved Common Questions page */
+  #page-faq .about-hero {
+    min-height: 34vh;
+    padding: 135px 4rem 35px;
+  }
+
   #page-faq .section-wrap {
+    max-width: 860px;
+    padding: 2rem 4rem 6rem;
+    border-top: none;
     text-align: center;
   }
 
   #page-faq .label {
     justify-content: center;
+    margin-bottom: 0.8rem;
   }
 
   #page-faq .label::before {
@@ -531,14 +540,58 @@
     background: var(--accent);
   }
 
+  #page-faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
   #page-faq .faq-list {
     max-width: 760px;
     margin: 0 auto;
     text-align: left;
+    background: rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.22);
   }
 
-  #page-faq h2 {
-    text-align: center;
+  #page-faq .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #page-faq .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  #page-faq .faq-q {
+    padding: 1.15rem 0;
+    font-size: 16px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  #page-faq .faq-a {
+    color: rgba(255,255,255,0.68);
+    padding-right: 1rem;
+  }
+
+  #page-faq .faq-item.open .faq-a {
+    padding-bottom: 1.15rem;
+  }
+
+  @media (max-width: 720px) {
+    #page-faq .about-hero {
+      min-height: 32vh;
+      padding: 120px 1.5rem 25px;
+    }
+
+    #page-faq .section-wrap {
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    #page-faq .faq-list {
+      padding: 0.5rem 1rem;
+    }
   }
 
 </style>
@@ -617,17 +670,17 @@
       <div class="step-card">
         <div class="step-num">01</div>
         <h3>Apply</h3>
-        <p>Fill out a short form. Tell us your background, target role, and where you're getting stuck in the process.</p>
+        <p>Fill out the application form with your background, target role, and where you need help in the job search.</p>
       </div>
       <div class="step-card">
         <div class="step-num">02</div>
-        <h3>Prep</h3>
-        <p>Join a focused 30-minute session. We sharpen your resume, fix your positioning, and drill the questions that matter.</p>
+        <h3>Review Application</h3>
+        <p>We review your goals, experience, resume, and package interest to decide the best path forward.</p>
       </div>
       <div class="step-card">
         <div class="step-num">03</div>
-        <h3>Compete</h3>
-        <p>Walk in with confidence. You'll know how to stand out and speak the language of hiring managers and decision makers.</p>
+        <h3>Results</h3>
+        <p>DogsOnly helps generate interview opportunities, sharpen your positioning, and prepare you to compete for real offers.</p>
       </div>
     </div>
   </div>
@@ -870,14 +923,14 @@
 <!-- PAGE: FAQ                                   -->
 <!-- ═══════════════════════════════════════════ -->
 <div id="page-faq" class="page">
-  <div class="about-hero" style="min-height:42vh;">
+  <div class="about-hero">
     <div class="about-hero-inner" style="animation: fadeUp 0.7s ease both;">
       <div class="label">Common Questions</div>
-      <h1 style="font-family:var(--serif);font-size:clamp(34px,4vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1.08;margin-bottom:1.25rem;">
+      <h1 style="font-family:var(--serif);font-size:clamp(34px,4vw,54px);font-weight:700;letter-spacing:-0.03em;line-height:1.08;margin-bottom:1rem;">
         Questions before you apply?
       </h1>
-      <p style="font-size:17px;font-weight:300;color:rgba(255,255,255,0.78);max-width:680px;line-height:1.7;margin:0 auto;">
-        Here are the most common questions candidates ask before working with DogsOnly.
+      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.72);max-width:620px;line-height:1.65;margin:0 auto;">
+        Quick answers about who DogsOnly is for, how the process works, and what to expect.
       </p>
     </div>
   </div>
@@ -885,8 +938,7 @@
 
   
   <div class="section-wrap" style="border-top:none; padding-top:6rem;">
-    <div class="label">FAQ</div>
-    <h2>Common questions</h2>
+    <h2>Everything you need to know</h2>
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q">Who is DogsOnly for? <span class="faq-icon">+</span></div>
