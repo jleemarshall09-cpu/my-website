@@ -247,7 +247,7 @@
   /* Home page = default visible */
   .page { display: none; }
   .page.active { display: block; }
-  #page-home { display: block; }
+  /* Home shows only when active */
 
   /* ── HOW IT WORKS ─────────────────────────── */
   .steps-grid {
@@ -400,6 +400,11 @@
   .about-body { max-width: 1100px; margin: 0 auto; padding: 0 4rem 6rem; }
   .about-body h2 { margin-bottom: 1.5rem; }
   .about-body p { font-size: 17px; color: rgba(255,255,255,0.78); line-height: 1.85; margin-bottom: 1.5rem; max-width: 700px; }
+  .about-body .highlight {
+    font-size: 20px; color: rgba(255,255,255,0.92);
+    border-left: 3px solid var(--accent); padding-left: 1.5rem;
+    margin: 2.5rem 0; font-family: var(--serif); font-style: italic; line-height: 1.6;
+  }
   .about-values { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 4rem; }
   .about-value {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
