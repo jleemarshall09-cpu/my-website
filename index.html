@@ -869,7 +869,7 @@
         <div class="label">Apply</div>
         <h2>Ready to compete?</h2>
         <p class="section-sub" style="max-width:700px;">Ready for DogsOnly to help generate interviews? Apply below for a paid package. For free questions, email <a href="mailto:apply@dogs-only.com" style="color:var(--accent-dark);">apply@dogs-only.com</a>.</p>
-        <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+        <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="ba99a1af-f52f-4973-9023-0a751ae663d1">
           <input type="hidden" name="subject" value="New DogsOnly Paid Application">
           <input type="hidden" name="from_name" value="DogsOnly Website">
@@ -931,8 +931,8 @@
               <textarea name="Biggest Struggle" placeholder="e.g. Not getting callbacks, don't know how to answer behavioral questions, resume feels generic..." required></textarea>
             </div>
             <div class="form-group form-full">
-              <label>Upload your resume</label>
-              <input type="file" name="Resume File" accept=".pdf,.doc,.docx" required />
+              <label>Resume link</label>
+              <input type="url" name="Resume Link" placeholder="Upload your resume to Google Drive, Dropbox, or OneDrive, make it viewable, and paste the link here" required />
             </div>
           </div>
           <div class="form-submit">
