@@ -626,6 +626,7 @@
   <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('how').scrollIntoView({behavior:'smooth'}),100);closeSideMenu()">How it Works</a>
   <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('reviews').scrollIntoView({behavior:'smooth'}),100);closeSideMenu()">Reviews</a>
   <a href="#" onclick="showPage('faq');closeSideMenu()">Common Questions</a>
+  <a href="#" onclick="showPage('terms');closeSideMenu()">Terms of Service</a>
 </div>
 
 <!-- ── NAV ───────────────────────────────── -->
@@ -935,6 +936,16 @@
               <input type="url" name="Resume Link" placeholder="Upload your resume to Google Drive, Dropbox, or OneDrive, make it viewable, and paste the link here" required />
             </div>
           </div>
+          <div class="form-group form-full" style="margin-top:1rem;">
+            <label style="display:flex; gap:10px; align-items:flex-start; text-transform:none; letter-spacing:0; font-size:14px; color:rgba(255,255,255,0.75); line-height:1.6; cursor:pointer;">
+              <input type="checkbox" name="Terms Agreement" value="Agreed to DogsOnly Terms of Service" required style="width:auto; min-width:18px; height:18px; margin-top:3px; accent-color:var(--accent);">
+              <span>
+                I agree to the
+                <a href="#" onclick="showPage('terms'); return false;" style="color:var(--accent-dark); text-decoration:underline;">DogsOnly Terms of Service</a>
+                and understand that DogsOnly does not guarantee job offers, employer responses, or hiring outcomes.
+              </span>
+            </label>
+          </div>
           <div class="form-submit">
             <button type="submit">Submit paid application →</button>
           </div>
@@ -1000,6 +1011,61 @@
     <p>© 2026 DogsOnly. Built for the ones who compete.</p>
   </footer>
 </div><!-- /page-faq -->
+
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PAGE: TERMS OF SERVICE                      -->
+<!-- ═══════════════════════════════════════════ -->
+<div id="page-terms" class="page">
+  <div class="about-hero">
+    <div class="about-hero-inner" style="animation: fadeUp 0.7s ease both;">
+      <div class="label">Terms of Service</div>
+      <h1 style="font-family:var(--serif);font-size:clamp(34px,4vw,54px);font-weight:700;letter-spacing:-0.03em;line-height:1.08;margin-bottom:1rem;">
+        DogsOnly Terms of Service
+      </h1>
+      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.72);max-width:620px;line-height:1.65;margin:0 auto;">
+        Last updated: June 2026
+      </p>
+    </div>
+  </div>
+
+  <div class="section-wrap" style="max-width:820px; padding-top:0;">
+    <div style="background:rgba(0,0,0,0.32);border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:2.25rem;text-align:left;">
+      <h3 style="font-family:var(--serif);font-size:24px;margin-bottom:0.75rem;">Overview</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">DogsOnly provides career support services for students and early-career candidates. Services may include employer outreach, interview opportunity generation support, resume guidance, interview preparation, coaching, and career strategy.</p>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">DogsOnly is not an employer, staffing agency, recruiting firm, or job placement guarantee service. DogsOnly does not guarantee job offers, employment, hiring outcomes, salary levels, or responses from specific companies.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Interview Outreach Package</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">The Interview Outreach package is designed to help generate interview opportunities through targeted outreach and candidate positioning. If no interview opportunity is generated through this package, the client may be eligible for $50 back. This policy applies only to the Interview Outreach package and does not guarantee employment or a job offer.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Client Responsibilities</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">Clients are responsible for providing accurate information, including resume details, contact information, work history, education, accomplishments, and career goals. DogsOnly is not responsible for delays, missed opportunities, or poor results caused by inaccurate, incomplete, or misleading client information.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Refund Policy</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">All purchases are for service-based work. Because DogsOnly begins work after payment and application submission, refunds are limited. The $100 Interview Outreach package includes the stated $50 back policy if no interview opportunity is generated. Other payments are generally non-refundable once work has begun, unless DogsOnly decides otherwise on a case-by-case basis.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">No Guarantee of Results</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">DogsOnly works to improve a candidate’s chances by helping with outreach, positioning, preparation, and strategy. However, hiring decisions are made by employers and outside organizations. DogsOnly cannot control whether a company responds, schedules an interview, extends an offer, or hires a client.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Use of Information</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">By submitting an application, the client gives DogsOnly permission to review their submitted information and use it to provide career support services. This may include reviewing resumes, accomplishments, target roles, career interests, and outreach-related information.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Professional Conduct</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">Clients agree to communicate respectfully and provide truthful information. DogsOnly reserves the right to refuse or discontinue service if a client provides false information, acts inappropriately, or requests unethical or misleading outreach.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Changes to Services</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:1.4rem;">DogsOnly may update services, pricing, package details, or terms at any time. Changes will not affect services already purchased unless both parties agree.</p>
+
+      <h3 style="font-family:var(--serif);font-size:24px;margin:1.75rem 0 0.75rem;">Agreement</h3>
+      <p style="color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:0;">By submitting an application, purchasing a package, or using DogsOnly services, the client agrees to these Terms of Service.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">DogsOnly</div>
+    <p>© 2026 DogsOnly. Built for the ones who compete.</p>
+  </footer>
+</div><!-- /page-terms -->
 
 
 <script>
