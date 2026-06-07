@@ -594,22 +594,6 @@
     margin-top: auto;
   }
 
-  .form-group input[type="file"] {
-    cursor: pointer;
-    padding: 12px 14px;
-  }
-  .form-group input[type="file"]::file-selector-button {
-    background: var(--accent);
-    color: var(--black);
-    border: none;
-    border-radius: 4px;
-    padding: 9px 14px;
-    margin-right: 12px;
-    font-family: var(--sans);
-    font-weight: 700;
-    cursor: pointer;
-  }
-
 
   /* Terms agreement checkbox fix */
   .terms-agreement label {
@@ -644,12 +628,136 @@
     display: inline-block;
   }
 
+
+
+  /* ── JULY OUTREACH POPUP ─────────────────── */
+  .cycle-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0,0,0,0.68);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .cycle-modal-overlay.open { display: flex; }
+  .cycle-modal {
+    width: min(720px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    background: linear-gradient(135deg, rgba(20,10,6,0.98), rgba(55,27,10,0.98));
+    border: 1px solid rgba(255,122,26,0.35);
+    border-radius: 18px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+    padding: 2.5rem;
+    text-align: left;
+  }
+  .cycle-modal .label { margin-bottom: 1rem; }
+  .cycle-modal h2 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+  .cycle-modal p {
+    color: rgba(255,255,255,0.78);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 15.5px;
+  }
+  .cycle-modal-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .cycle-modal-accept {
+    background: var(--accent);
+    color: var(--black);
+    border: none;
+    padding: 14px 26px;
+    border-radius: 5px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .cycle-modal-accept:hover { background: #ff9a3d; }
+
+  /* ── APPLICATION PREVIEW ─────────────────── */
+  .application-preview {
+    margin-top: 2rem;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .application-preview h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    margin-bottom: 0.4rem;
+  }
+  .application-preview p {
+    color: rgba(255,255,255,0.62);
+    font-size: 14px;
+    margin-bottom: 1.25rem;
+  }
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .preview-field {
+    background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 8px;
+    padding: 13px 14px;
+    min-height: 58px;
+  }
+  .preview-field.full { grid-column: 1 / -1; }
+  .preview-field span {
+    display: block;
+    color: var(--accent-dark);
+    font-size: 10px;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .preview-field em {
+    color: rgba(255,255,255,0.76);
+    font-style: normal;
+    font-size: 14px;
+  }
+  .custom-industry-field { display: none; }
+  .custom-industry-field.show { display: block; }
+  @media (max-width: 720px) {
+    .cycle-modal { padding: 1.75rem; }
+    .preview-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body>
 
 <!-- ── SIDE MENU OVERLAY ─────────────────── -->
 <div class="side-overlay" id="sideOverlay" onclick="closeSideMenu()"></div>
+
+
+<!-- ── JULY OUTREACH CYCLE POPUP ─────────── -->
+<div class="cycle-modal-overlay" id="cycleModalOverlay" role="dialog" aria-modal="true" aria-labelledby="cycleModalTitle">
+  <div class="cycle-modal">
+    <div class="label">July outreach cycle</div>
+    <h2 id="cycleModalTitle">DogsOnly is now accepting candidates for the next interview outreach cycle.</h2>
+    <p>Because interview outreach takes time to prepare, position, and execute correctly, DogsOnly operates on an average 60-day interview process. This allows time to review each candidate’s resume, understand their goals, build a strong outreach strategy, and begin contacting the right companies and decision makers.</p>
+    <p>The next outreach cycle will begin in July. Applying now gives candidates time to secure their spot, submit their information, and allow DogsOnly to prepare their resume, accomplishments, target roles, and outreach strategy before the process begins.</p>
+    <p>DogsOnly is built for students and early-career candidates who want to stop applying blindly and start approaching the job search with a clear plan.</p>
+    <div class="cycle-modal-actions">
+      <button type="button" class="cycle-modal-accept" onclick="acceptCycleModal()">I understand — continue</button>
+    </div>
+  </div>
+</div>
 
 <!-- ── SIDE MENU ─────────────────────────── -->
 <div class="side-menu" id="sideMenu">
@@ -897,12 +1005,30 @@
   </div>
 
   <!-- APPLY FORM -->
+  <span id="apply" style="position:relative; top:-120px;"></span>
   <div id="apply-form-section" style="padding: 0 0 6rem;">
     <div id="payment-gate" class="form-section">
       <div class="section-wrap">
         <div class="label">Application locked</div>
         <h2>Pay first, then apply.</h2>
         <p class="section-sub" style="max-width:700px;">Choose a paid package above and complete payment through Stripe. After payment, you will be redirected back here to complete your DogsOnly application. For free questions, email <a href="mailto:apply@dogs-only.com" style="color:var(--accent-dark);">apply@dogs-only.com</a>.</p>
+        <div class="application-preview">
+          <h3>Application preview</h3>
+          <p>This is what you will complete after payment. Payment unlocks the live application.</p>
+          <div class="preview-grid">
+            <div class="preview-field"><span>Full name</span><em>Your full name</em></div>
+            <div class="preview-field"><span>Email address</span><em>you@email.com</em></div>
+            <div class="preview-field"><span>Phone number</span><em>Best number to reach you</em></div>
+            <div class="preview-field"><span>LinkedIn URL</span><em>Your LinkedIn profile</em></div>
+            <div class="preview-field"><span>Target industry</span><em>Choose a listed industry or enter a custom target</em></div>
+            <div class="preview-field"><span>Package</span><em>Your paid DogsOnly package</em></div>
+            <div class="preview-field"><span>Current school</span><em>College or university</em></div>
+            <div class="preview-field"><span>Referral</span><em>Optional — who sent you?</em></div>
+            <div class="preview-field full"><span>Accomplishments</span><em>A short professional summary of your background, projects, work experience, athletics, leadership, or goals.</em></div>
+            <div class="preview-field full"><span>Biggest struggle</span><em>Tell us where you are stuck in the job search.</em></div>
+            <div class="preview-field full"><span>Resume link</span><em>Google Drive, Dropbox, or OneDrive link to your resume.</em></div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="paid-application-form" class="form-section" style="display:none;">
@@ -936,7 +1062,7 @@
             </div>
             <div class="form-group">
               <label>Target industry</label>
-              <select name="Target Industry" required>
+              <select name="Target Industry" id="targetIndustrySelect" required>
                 <option value="" disabled selected>Select your industry</option>
                 <option value="Technology">Technology</option>
                 <option value="Finance">Finance</option>
@@ -945,8 +1071,12 @@
                 <option value="Operations">Operations</option>
                 <option value="Consulting">Consulting</option>
                 <option value="Healthcare">Healthcare</option>
-                <option value="Other">Other</option>
+                <option value="Custom">Custom target</option>
               </select>
+            </div>
+            <div class="form-group custom-industry-field" id="customIndustryField">
+              <label>Custom target industry / role</label>
+              <input type="text" name="Custom Target Industry" id="customIndustryInput" placeholder="Example: cybersecurity, sports marketing, real estate, medical sales, etc." />
             </div>
             <div class="form-group">
               <label>Session type</label>
@@ -1124,6 +1254,9 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const el = document.getElementById('page-' + id);
     if (el) { el.classList.add('active'); window.scrollTo(0, 0); }
+    if (id === 'apply-pricing') {
+      maybeShowCycleModal();
+    }
   }
 
   // ── SIDE MENU ──────────────────────────────
@@ -1152,6 +1285,44 @@
     if (!isOpen) item.classList.add('open');
   });
 
+
+
+
+  // ── JULY OUTREACH CYCLE POPUP ──────────────
+  function maybeShowCycleModal() {
+    const params = new URLSearchParams(window.location.search);
+    const paid = params.get('paid') === 'true';
+    const accepted = sessionStorage.getItem('dogsOnlyCycleModalAccepted') === 'true';
+    const modal = document.getElementById('cycleModalOverlay');
+    if (!modal || paid || accepted) return;
+    setTimeout(function () {
+      modal.classList.add('open');
+    }, 250);
+  }
+
+  function acceptCycleModal() {
+    sessionStorage.setItem('dogsOnlyCycleModalAccepted', 'true');
+    const modal = document.getElementById('cycleModalOverlay');
+    if (modal) modal.classList.remove('open');
+  }
+
+  // ── CUSTOM TARGET INDUSTRY FIELD ───────────
+  function setupCustomIndustryField() {
+    const industrySelect = document.getElementById('targetIndustrySelect');
+    const customField = document.getElementById('customIndustryField');
+    const customInput = document.getElementById('customIndustryInput');
+    if (!industrySelect || !customField || !customInput) return;
+
+    function updateCustomIndustry() {
+      const showCustom = industrySelect.value === 'Custom';
+      customField.classList.toggle('show', showCustom);
+      customInput.required = showCustom;
+      if (!showCustom) customInput.value = '';
+    }
+
+    industrySelect.addEventListener('change', updateCustomIndustry);
+    updateCustomIndustry();
+  }
 
   // Stripe payment redirect unlocks application
   function unlockApplicationFromStripe() {
@@ -1186,7 +1357,10 @@
     }
   }
 
-  window.addEventListener('DOMContentLoaded', unlockApplicationFromStripe);
+  window.addEventListener('DOMContentLoaded', function () {
+    setupCustomIndustryField();
+    unlockApplicationFromStripe();
+  });
 
 </script>
 
