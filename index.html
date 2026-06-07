@@ -669,7 +669,7 @@
     DogsOnly
   </a>
   <div class="nav-right">
-    <a href="#" class="nav-cta-primary" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('apply-form-section').scrollIntoView({behavior:'smooth'}),100); return false;">Apply Now</a>
+    <a href="#" class="nav-cta-primary" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),100); return false;">Apply Now</a>
     <a href="#" class="nav-cta-pricing" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),100); return false;">Pricing</a>
     <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSideMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -693,7 +693,7 @@
       <div class="hero-right">
         <p class="hero-sub">DogsOnly generates the interviews for you, and helps entry-level candidates and college students break through to decision makers so they walk into every interview ready to win.</p>
         <div class="hero-actions">
-          <a href="#" class="btn-dark" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('apply-form-section').scrollIntoView({behavior:'smooth'}),100); return false;">Apply for a session</a>
+          <a href="#" class="btn-dark" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),100); return false;">Apply for a session</a>
           <a href="#" class="btn-black-outline" onclick="showPage('apply-pricing'); setTimeout(()=>document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}),100); return false;">See pricing</a>
         </div>
       </div>
@@ -865,7 +865,7 @@
           <li class="not-included">No resume help</li>
           <li class="not-included">No prep session</li>
         </ul>
-        <button class="price-btn price-btn-light" onclick="document.getElementById('apply-form-section').scrollIntoView({behavior:'smooth'})">Apply now</button>
+        <a class="price-btn price-btn-light" href="https://buy.stripe.com/7sYdR99RhaKea8x9pF2cg00">Start Interview Outreach — $100</a>
       </div>
       <div class="price-card featured">
         <div class="price-tag">Most popular</div>
@@ -878,7 +878,7 @@
           <li>30-minute coaching session</li>
           <li>More outreach volume</li>
         </ul>
-        <button class="price-btn price-btn-dark" onclick="document.getElementById('apply-form-section').scrollIntoView({behavior:'smooth'})">Apply now</button>
+        <a class="price-btn price-btn-dark" href="https://buy.stripe.com/cNibJ19Rh5pU2G5gS72cg01">Start Competitive Candidate — $250</a>
       </div>
       <div class="price-card">
         <div class="price-tag">Full cycle</div>
@@ -891,22 +891,31 @@
           <li>Two 30-minute trainings</li>
           <li>Interview prep support</li>
         </ul>
-        <button class="price-btn price-btn-light" onclick="document.getElementById('apply-form-section').scrollIntoView({behavior:'smooth'})">Apply now</button>
+        <a class="price-btn price-btn-light" href="https://buy.stripe.com/4gM5kD7J95pU1C145l2cg02">Start Full-Cycle Support — $500</a>
       </div>
     </div>
   </div>
 
   <!-- APPLY FORM -->
   <div id="apply-form-section" style="padding: 0 0 6rem;">
-    <div class="form-section">
+    <div id="payment-gate" class="form-section">
       <div class="section-wrap">
-        <div class="label">Apply</div>
-        <h2>Ready to compete?</h2>
-        <p class="section-sub" style="max-width:700px;">Ready for DogsOnly to help generate interviews? Apply below for a paid package. For free questions, email <a href="mailto:apply@dogs-only.com" style="color:var(--accent-dark);">apply@dogs-only.com</a>.</p>
+        <div class="label">Application locked</div>
+        <h2>Pay first, then apply.</h2>
+        <p class="section-sub" style="max-width:700px;">Choose a paid package above and complete payment through Stripe. After payment, you will be redirected back here to complete your DogsOnly application. For free questions, email <a href="mailto:apply@dogs-only.com" style="color:var(--accent-dark);">apply@dogs-only.com</a>.</p>
+      </div>
+    </div>
+    <div id="paid-application-form" class="form-section" style="display:none;">
+      <div class="section-wrap">
+        <div class="label">Paid Application</div>
+        <h2>Payment received. Complete your application.</h2>
+        <p class="section-sub" style="max-width:700px;">Thank you for purchasing a DogsOnly package. Complete the application below so we can review your background, goals, resume, and outreach direction.</p>
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="ba99a1af-f52f-4973-9023-0a751ae663d1">
           <input type="hidden" name="subject" value="New DogsOnly Paid Application">
           <input type="hidden" name="from_name" value="DogsOnly Website">
+              <input type="hidden" name="Payment Status" value="Paid before application">
+              <input type="hidden" id="selectedPackageHidden" name="Selected Package From Stripe" value="">
 
           <div class="form-grid">
             <div class="form-group">
@@ -1134,6 +1143,43 @@
     document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   });
+
+
+  // Stripe payment redirect unlocks application
+  function unlockApplicationFromStripe() {
+    const params = new URLSearchParams(window.location.search);
+    const paid = params.get('paid') === 'true';
+    const packageParam = params.get('package') || '';
+    const gate = document.getElementById('payment-gate');
+    const formWrap = document.getElementById('paid-application-form');
+    const applySection = document.getElementById('apply-form-section');
+    const packageSelect = document.querySelector('select[name="Session Type"]');
+    const packageHidden = document.getElementById('selectedPackageHidden');
+
+    if (paid) {
+      showPage('apply-pricing');
+      if (gate) gate.style.display = 'none';
+      if (formWrap) formWrap.style.display = 'block';
+
+      let packageValue = '';
+      if (packageParam === 'interview-outreach') packageValue = '$100 interview outreach';
+      if (packageParam === 'competitive-candidate') packageValue = '$250 competitive candidate package';
+      if (packageParam === 'full-cycle-support') packageValue = '$500 full-cycle support';
+
+      if (packageValue && packageSelect) packageSelect.value = packageValue;
+      if (packageValue && packageHidden) packageHidden.value = packageValue;
+
+      setTimeout(function () {
+        if (applySection) applySection.scrollIntoView({ behavior: 'smooth' });
+      }, 250);
+    } else {
+      if (gate) gate.style.display = 'block';
+      if (formWrap) formWrap.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', unlockApplicationFromStripe);
+
 </script>
 
 </body>
