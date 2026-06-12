@@ -283,25 +283,60 @@
   .step-card p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.7; }
 
   /* ── TESTIMONIALS ─────────────────────────── */
-  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
   .testi-card {
     background: rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px; padding: 3rem 2rem 2rem;
-    position: relative; transition: transform 0.2s, border-color 0.2s;
+    border-radius: 12px;
+    padding: 3rem 2rem 2rem;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 285px;
   }
   .testi-card:hover { transform: translateY(-3px); border-color: rgba(255,122,26,0.45); }
   .testi-quote {
-    font-size: 15px; line-height: 1.75; color: rgba(255,255,255,0.88);
-    margin-bottom: 1.5rem; position: relative;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 1.75rem;
+    position: relative;
+    flex: 1;
   }
   .testi-quote::before {
     content: '\201C'; font-size: 72px; font-family: var(--serif);
     color: var(--accent); opacity: 0.5;
     position: absolute; top: -45px; left: 0; line-height: 1;
   }
-  .testi-author strong { display: block; font-size: 15px; font-weight: 700; }
-  .testi-author span { font-size: 13px; color: var(--accent-dark); }
+  .testi-author {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .testi-author strong {
+    display: block;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .testi-author span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--accent-dark);
+    margin-top: 4px;
+  }
 
   /* ── PRICING ──────────────────────────────── */
   .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -500,6 +535,7 @@
   /* ── RESPONSIVE ───────────────────────────── */
   @media (max-width: 1100px) {
     .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: repeat(2, 1fr); }
     .about-values { grid-template-columns: repeat(2,1fr); }
   }
   @media (max-width: 860px) {
@@ -918,6 +954,13 @@
         <div class="testi-author">
           <strong>Lee</strong>
           <span>Sales Executive</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">DogsOnly helped me achieve an interview with the top internship company I wanted for the summer.</div>
+        <div class="testi-author">
+          <strong>Andrew</strong>
+          <span>Computer Science Degree Candidate</span>
         </div>
       </div>
     </div>
